@@ -5,5 +5,15 @@
   "stat.statch22.combat": "[Skills] Combat",
   "stat.statch22.forage_harvested": "Forage Harvested",
   "stat.statch22.logs_chopped": "Logs Chopped",
-  "stat.statch22.foraging": "[Skills] Foraging"
+  "stat.statch22.foraging": "[Skills] Foraging",
+  "stat.statch22.ores_mined": "Ores Mined",
+  "stat.statch22.stone_mined": "Stone Mined",
+  "stat.statch22.mining": "[Skills] Mining",
+  "stat.statch22.blocks_placed": "Blocks Placed",
+  "stat.statch22.fishing": "[Skills] Fishing",
+  "stat.statch22.building": "[Skills] Building",
+  "stat.statch22.exploration": "[Skills] Exploration",
+  "stat.statch22.silver_crops_harvested": "Silver Crops Harvested",
+  "stat.statch22.gold_crops_harvested": "Gold Crops Harvested",
+  "stat.statch22.diamond_crops_harvested": "Diamond Crops Harvested"
 }

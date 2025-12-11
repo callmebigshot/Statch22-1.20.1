@@ -121,18 +121,6 @@ public class GenericModHandler {
         }
     }
 
-    @SubscribeEvent
-    public void onGenericModdedTreeChop(BlockEvent.BreakEvent event) {
-        if (event.getPlayer() instanceof ServerPlayer player) {
-            BlockState state = event.getState();
-            ResourceLocation blockId = ForgeRegistries.BLOCKS.getKey(state.getBlock());
-            if (blockId != null && !blockId.getNamespace().equals("minecraft")) {
-                if (isModdedLog(blockId)) {
-                }
-            }
-        }
-    }
-
     private boolean isModdedForageable(ResourceLocation blockId) {
         String path = blockId.getPath();
         return path.contains("berry") ||

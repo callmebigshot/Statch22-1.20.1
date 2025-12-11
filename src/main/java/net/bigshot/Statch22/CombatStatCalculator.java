@@ -10,23 +10,34 @@ public class CombatStatCalculator {
     private static final Map<UUID, Integer> lastCombatScores = new HashMap<>();
 
     public static void addMobKill(Player player, int weight) {
-        addCombatScore(player, weight);
+        if (Statch22Config.ENABLE_COMBAT.get()) {
+            int points = weight * Statch22Config.COMBAT_KILL_BASE.get();
+            addCombatScore(player, points);
+        }
     }
 
     public static void addPlayerKill(Player player) {
-        addCombatScore(player, 10);
+        if (Statch22Config.ENABLE_COMBAT.get()) {
+            addCombatScore(player, Statch22Config.COMBAT_PLAYER_KILL_BONUS.get());
+        }
     }
 
     public static void addDamageDealt(Player player, int points) {
-        addCombatScore(player, points);
+        if (Statch22Config.ENABLE_COMBAT.get()) {
+            addCombatScore(player, points);
+        }
     }
 
     public static void addDamageBlocked(Player player, int points) {
-        addCombatScore(player, points);
+        if (Statch22Config.ENABLE_COMBAT.get()) {
+            addCombatScore(player, points);
+        }
     }
 
     public static void addDamageResisted(Player player, int points) {
-        addCombatScore(player, points);
+        if (Statch22Config.ENABLE_COMBAT.get()) {
+            addCombatScore(player, points);
+        }
     }
 
     private static void addCombatScore(Player player, int amount) {

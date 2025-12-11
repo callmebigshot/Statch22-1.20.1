@@ -10,15 +10,21 @@ public class ForageStatCalculator {
     private static final Map<UUID, Integer> lastForageScores = new HashMap<>();
 
     public static void addForageHarvested(Player player) {
-        addForageScore(player, 1);
+        if (Statch22Config.ENABLE_FORAGING.get()) {
+            addForageScore(player, Statch22Config.FORAGING_LOG_POINTS.get());
+        }
     }
 
     public static void addLogsChopped(Player player) {
-        addForageScore(player, 2);
+        if (Statch22Config.ENABLE_FORAGING.get()) {
+            addForageScore(player, Statch22Config.FORAGING_LOG_POINTS.get());
+        }
     }
 
     public static void addRareForage(Player player) {
-        addForageScore(player, 5);
+        if (Statch22Config.ENABLE_FORAGING.get()) {
+            addForageScore(player, Statch22Config.FORAGING_RARE_POINTS.get());
+        }
     }
 
     private static void addForageScore(Player player, int amount) {
