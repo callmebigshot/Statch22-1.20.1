@@ -33,12 +33,30 @@ public class Statch22 {
             CUSTOM_STATS.register("farming",
                     () -> new ResourceLocation(MODID, "farming"));
 
+    public static final RegistryObject<ResourceLocation> COMBAT_STAT =
+            CUSTOM_STATS.register("combat",
+                    () -> new ResourceLocation(MODID, "combat"));
+
+    public static final RegistryObject<ResourceLocation> FORAGE_HARVESTED_STAT =
+            CUSTOM_STATS.register("forage_harvested",
+                    () -> new ResourceLocation(MODID, "forage_harvested"));
+
+    public static final RegistryObject<ResourceLocation> LOGS_CHOPPED_STAT =
+            CUSTOM_STATS.register("logs_chopped",
+                    () -> new ResourceLocation(MODID, "logs_chopped"));
+
+    public static final RegistryObject<ResourceLocation> FORAGING_STAT =
+            CUSTOM_STATS.register("foraging",
+                    () -> new ResourceLocation(MODID, "foraging"));
+
     public Statch22() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
         CUSTOM_STATS.register(modEventBus);
         forgeEventBus.register(new EventHandler());
+        forgeEventBus.register(new CombatEventHandler());
+        forgeEventBus.register(new ForageEventHandler());
         ModIntegrations.registerIntegrations(forgeEventBus);
         forgeEventBus.addListener(this::onPlayerTick);
         modEventBus.addListener(this::onCommonSetup);
@@ -62,6 +80,10 @@ public class Statch22 {
             Stats.CUSTOM.get(CROPS_PLANTED_STAT.get(), StatFormatter.DEFAULT);
             Stats.CUSTOM.get(CROPS_HARVESTED_STAT.get(), StatFormatter.DEFAULT);
             Stats.CUSTOM.get(FARMING_STAT.get(), StatFormatter.DEFAULT);
+            Stats.CUSTOM.get(COMBAT_STAT.get(), StatFormatter.DEFAULT);
+            Stats.CUSTOM.get(FORAGE_HARVESTED_STAT.get(), StatFormatter.DEFAULT);
+            Stats.CUSTOM.get(LOGS_CHOPPED_STAT.get(), StatFormatter.DEFAULT);
+            Stats.CUSTOM.get(FORAGING_STAT.get(), StatFormatter.DEFAULT);
         });
     }
 }

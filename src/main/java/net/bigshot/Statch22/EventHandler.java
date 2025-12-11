@@ -16,6 +16,7 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraft.stats.Stats;
 
 public class EventHandler {
 
@@ -50,6 +51,14 @@ public class EventHandler {
         if (isPlanting) {
             player.awardStat(Statch22.CROPS_PLANTED_STAT.get(), 1);
             StatCalculator.addCropsPlanted(player);
+
+            int currentScore = StatCalculator.getScore(player);
+            int lastScore = StatCalculator.getLastScore(player);
+            if (currentScore > lastScore) {
+                int difference = currentScore - lastScore;
+                player.awardStat(Stats.CUSTOM.get(Statch22.FARMING_STAT.get()), difference);
+                StatCalculator.setLastScore(player, currentScore);
+            }
         }
     }
 
@@ -97,7 +106,7 @@ public class EventHandler {
             StatCalculator.addAnimalsBred(player);
         }
     }
-    
+
     @SubscribeEvent
     public void onUseItem(net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickItem event) {
         if (event.getHand() != InteractionHand.MAIN_HAND) {

@@ -1,5 +1,9 @@
 {
   "stat.statch22.crops_planted": "Crops Planted",
   "stat.statch22.crops_harvested": "Crops Harvested",
-  "stat.statch22.farming": "Farming"
+  "stat.statch22.farming": "[Skills] Farming",
+  "stat.statch22.combat": "[Skills] Combat",
+  "stat.statch22.forage_harvested": "Forage Harvested",
+  "stat.statch22.logs_chopped": "Logs Chopped",
+  "stat.statch22.foraging": "[Skills] Foraging"
 }
