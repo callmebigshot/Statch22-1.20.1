@@ -12,8 +12,9 @@
   "stat.statch22.blocks_placed": "Blocks Placed",
   "stat.statch22.fishing": "[Skills] Fishing",
   "stat.statch22.building": "[Skills] Building",
-  "stat.statch22.exploration": "[Skills] Exploration",
   "stat.statch22.silver_crops_harvested": "Silver Crops Harvested",
   "stat.statch22.gold_crops_harvested": "Gold Crops Harvested",
-  "stat.statch22.diamond_crops_harvested": "Diamond Crops Harvested"
+  "stat.statch22.diamond_crops_harvested": "Diamond Crops Harvested",
+  "stat.statch22.enchantments_applied": "Enchantments Applied",
+  "stat.statch22.enchanting": "[Skills] Enchanting"
 }

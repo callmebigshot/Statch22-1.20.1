@@ -85,6 +85,14 @@ public class Statch22 {
             CUSTOM_STATS.register("diamond_crops_harvested",
                     () -> ResourceLocation.fromNamespaceAndPath(MODID, "diamond_crops_harvested"));
 
+    public static final RegistryObject<ResourceLocation> ENCHANTMENTS_APPLIED_STAT =
+            CUSTOM_STATS.register("enchantments_applied",
+                    () -> ResourceLocation.fromNamespaceAndPath(MODID, "enchantments_applied"));
+
+    public static final RegistryObject<ResourceLocation> ENCHANTING_STAT =
+            CUSTOM_STATS.register("enchanting",
+                    () -> ResourceLocation.fromNamespaceAndPath(MODID, "enchanting"));
+
     public Statch22() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
@@ -97,6 +105,7 @@ public class Statch22 {
         forgeEventBus.register(new FishingEventHandler());
         forgeEventBus.register(new BuildingEventHandler());
         forgeEventBus.register(new FarmingQualityEventHandler());
+        forgeEventBus.register(new EnchantingEventHandler());
         ModIntegrations.registerIntegrations(forgeEventBus);
         modEventBus.addListener(this::onCommonSetup);
 
@@ -118,6 +127,8 @@ public class Statch22 {
             Stats.CUSTOM.get(BLOCKS_PLACED_STAT.get(), StatFormatter.DEFAULT);
             Stats.CUSTOM.get(FISHING_STAT.get(), StatFormatter.DEFAULT);
             Stats.CUSTOM.get(BUILDING_STAT.get(), StatFormatter.DEFAULT);
+            Stats.CUSTOM.get(ENCHANTMENTS_APPLIED_STAT.get(), StatFormatter.DEFAULT);
+            Stats.CUSTOM.get(ENCHANTING_STAT.get(), StatFormatter.DEFAULT);
         });
     }
 }

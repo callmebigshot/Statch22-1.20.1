@@ -34,6 +34,12 @@ public class Statch22Config {
     public static final ForgeConfigSpec.BooleanValue ENABLE_BUILDING;
     public static final ForgeConfigSpec.IntValue BUILDING_BASE_POINTS;
 
+    public static final ForgeConfigSpec.BooleanValue ENABLE_ENCHANTING;
+    public static final ForgeConfigSpec.IntValue ENCHANTING_BASE_MULTIPLIER;
+    public static final ForgeConfigSpec.IntValue ENCHANTING_XP_MULTIPLIER;
+    public static final ForgeConfigSpec.IntValue ENCHANTING_COUNT_MULTIPLIER;
+    public static final ForgeConfigSpec.IntValue ENCHANTING_RARITY_MULTIPLIER;
+
     static {
         BUILDER.push("Farming");
         ENABLE_FARMING = BUILDER.define("enableFarming", true);
@@ -71,6 +77,14 @@ public class Statch22Config {
         BUILDER.push("Building");
         ENABLE_BUILDING = BUILDER.define("enableBuilding", true);
         BUILDING_BASE_POINTS = BUILDER.defineInRange("buildingBasePoints", 1, 0, 100);
+        BUILDER.pop();
+
+        BUILDER.push("Enchanting");
+        ENABLE_ENCHANTING = BUILDER.define("enableEnchanting", true);
+        ENCHANTING_BASE_MULTIPLIER = BUILDER.defineInRange("enchantingBaseMultiplier", 1, 1, 10);
+        ENCHANTING_XP_MULTIPLIER = BUILDER.defineInRange("enchantingXPMultiplier", 2, 1, 20);
+        ENCHANTING_COUNT_MULTIPLIER = BUILDER.defineInRange("enchantingCountMultiplier", 5, 1, 20);
+        ENCHANTING_RARITY_MULTIPLIER = BUILDER.defineInRange("enchantingRarityMultiplier", 3, 1, 20);
         BUILDER.pop();
 
         SPEC = BUILDER.build();
